@@ -28,7 +28,8 @@ module.exports = {
      ** Plugins to load before mounting the App
      */
     plugins: [
-        '@/plugins/element-ui'
+        '@/plugins/element-ui',
+        '@/plugins/axios'
     ],
     /*
      ** Nuxt.js dev-modules
@@ -40,6 +41,13 @@ module.exports = {
     modules: [
         '@nuxtjs/axios'
     ],
+    // axios设置:使用代理,解决跨域问题
+    axios: {
+        proxy: true
+    },
+    proxy: {
+        "/api/": "http://localhost:3001/"
+    },
     /*
      ** Build configuration
      */
